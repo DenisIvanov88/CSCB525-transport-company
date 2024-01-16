@@ -1,7 +1,11 @@
 package org.example.dao;
 
+import org.example.entity.Company;
+import org.example.entity.Employee;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,6 +13,34 @@ class EmployeeDaoTest {
 
     @BeforeEach
     void setUp() {
+    }
+
+    @Test
+    void createEmployee() {
+        Employee employee = new Employee("Hristo", "1111111111", 2000, false, true, CompanyDao.getCompanyById(1));
+        EmployeeDao.createEmployee(employee);
+    }
+
+    @Test
+    void getEmployeeById() {
+        System.out.println(EmployeeDao.getEmployeeById(4));
+    }
+
+    @Test
+    void getEmployees() {
+        EmployeeDao.getEmployees().stream().forEach(System.out::println);
+    }
+
+    @Test
+    void updateEmployee() {
+        Employee employee = EmployeeDao.getEmployeeById(4);
+        employee.setName("Georgi");
+        EmployeeDao.updateEmployee(employee);
+    }
+
+    @Test
+    void deleteEmployee() {
+        EmployeeDao.deleteEmployee(EmployeeDao.getEmployeeById(4));
     }
 
     @Test
@@ -36,9 +68,9 @@ class EmployeeDaoTest {
     }
 
     @Test
-    void sumSalaries() {
+    void sumSalariesInCompany() {
         System.out.println("\n Sum of employee salaries");
-        System.out.println(EmployeeDao.sumSalaries());
+        System.out.println(EmployeeDao.sumSalariesInCompany(1));
     }
 
     @Test
@@ -51,5 +83,21 @@ class EmployeeDaoTest {
     void employeesWithCrowdLicense() {
         System.out.println("\n Employees with crowd license ");
         EmployeeDao.employeesWithCrowdLicense().stream().forEach(System.out::println);
+    }
+
+    @Test
+    void getEmployeeTransports() {
+        System.out.println("\n Get all transports of employee");
+        EmployeeDao.getEmployeeTransports(1).stream().forEach(System.out::println);
+    }
+
+    @Test
+    void getEmployeesSortedByEarnings() {
+        EmployeeDao.getEmployeesSortedByEarnings().stream().forEach(System.out::println);
+    }
+
+    @Test
+    void getEmployeeTransportCounts() {
+        EmployeeDao.getEmployeeTransportCounts().stream().forEach(System.out::println);
     }
 }

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - EmployeeTransportFileWriterTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>EmployeeTransportFileWriterTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/org.example.fileWriter.html">org.example.fileWriter</a> &gt; EmployeeTransportFileWriterTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">1.821s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">writeEmployeeTransportCountsToFile()</td>
+<td class="success">1.821s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>[INFO ] 2024-01-16 03:47:52.816 [Test worker] Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] 2024-01-16 03:47:52.822 [Test worker] Environment - HHH000205: Loaded properties from resource hibernate.properties: {hibernate.connection.driver_class=com.mysql.cj.jdbc.Driver, hibernate.dialect.storage_engine=innodb, hibernate.hbm2ddl.auto=update, hibernate.dialect=org.hibernate.dialect.MySQL5Dialect, hibernate.connection.password=****, hibernate.connection.username=root, hibernate.connection.url=jdbc:mysql://localhost:3306/transportcompany?createDatabaseIfNotExist=true&amp;useSSL=true&amp;serverTimezone=UTC, hibernate.bytecode.use_reflection_optimizer=false, hibernate.show_sql=true}
+[INFO ] 2024-01-16 03:47:53.015 [Test worker] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[WARN ] 2024-01-16 03:47:53.117 [Test worker] pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[INFO ] 2024-01-16 03:47:53.122 [Test worker] pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/transportcompany?createDatabaseIfNotExist=true&amp;useSSL=true&amp;serverTimezone=UTC]
+[INFO ] 2024-01-16 03:47:53.122 [Test worker] pooling - HHH10001001: Connection properties: {password=****, user=root}
+[INFO ] 2024-01-16 03:47:53.122 [Test worker] pooling - HHH10001003: Autocommit mode: false
+[INFO ] 2024-01-16 03:47:53.125 [Test worker] DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+[INFO ] 2024-01-16 03:47:53.399 [Test worker] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[INFO ] 2024-01-16 03:47:54.010 [Test worker] access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@d108406] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[INFO ] 2024-01-16 03:47:54.102 [Test worker] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[DEBUG] 2024-01-16 03:47:54.235 [Test worker] SQL - select employee0_.id as col_0_0_, employee0_.name as col_1_0_, count(transports1_.id) as col_2_0_ from employee employee0_ left outer join transport transports1_ on employee0_.id=transports1_.employee_id group by employee0_.id , employee0_.name
+Hibernate: select employee0_.id as col_0_0_, employee0_.name as col_1_0_, count(transports1_.id) as col_2_0_ from employee employee0_ left outer join transport transports1_ on employee0_.id=transports1_.employee_id group by employee0_.id , employee0_.name
+[TRACE] 2024-01-16 03:47:54.239 [Test worker] BasicExtractor - extracted value ([col_0_0_] : [BIGINT]) - [1]
+[TRACE] 2024-01-16 03:47:54.240 [Test worker] BasicExtractor - extracted value ([col_1_0_] : [VARCHAR]) - [Georgi]
+[TRACE] 2024-01-16 03:47:54.240 [Test worker] BasicExtractor - extracted value ([col_2_0_] : [BIGINT]) - [1]
+[TRACE] 2024-01-16 03:47:54.240 [Test worker] BasicExtractor - extracted value ([col_0_0_] : [BIGINT]) - [2]
+[TRACE] 2024-01-16 03:47:54.240 [Test worker] BasicExtractor - extracted value ([col_1_0_] : [VARCHAR]) - [Emp2]
+[TRACE] 2024-01-16 03:47:54.240 [Test worker] BasicExtractor - extracted value ([col_2_0_] : [BIGINT]) - [0]
+[TRACE] 2024-01-16 03:47:54.240 [Test worker] BasicExtractor - extracted value ([col_0_0_] : [BIGINT]) - [3]
+[TRACE] 2024-01-16 03:47:54.240 [Test worker] BasicExtractor - extracted value ([col_1_0_] : [VARCHAR]) - [Emp3]
+[TRACE] 2024-01-16 03:47:54.240 [Test worker] BasicExtractor - extracted value ([col_2_0_] : [BIGINT]) - [1]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.0</a> at Jan 16, 2024, 3:47:54 AM</p>
+</div>
+</div>
+</body>
+</html>

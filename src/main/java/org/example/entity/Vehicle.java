@@ -12,13 +12,11 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "vehicle_type")
-    private VehicleType vehicleType;
+    private String vehicleType;
     @Column(name = "license_plate")
     private String licensePlate;
     @Column(name = "capacity_KG")
     private double capacityKG;
-    @Column(name = "capacity_meters")
-    private String capacityMeters; //example 3mx2m
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
@@ -27,11 +25,10 @@ public class Vehicle {
 
     //constructors
     public Vehicle() {}
-    public Vehicle(VehicleType vehicleType, String licensePlate, double capacityKG, String capacityMeters, Company company) {
+    public Vehicle(String vehicleType, String licensePlate, double capacityKG,  Company company) {
         this.vehicleType = vehicleType;
         this.licensePlate = licensePlate;
         this.capacityKG = capacityKG;
-        this.capacityMeters = capacityMeters;
         this.company = company;
     }
 
@@ -40,7 +37,7 @@ public class Vehicle {
         return id;
     }
 
-    public VehicleType getVehicleType() {
+    public String getVehicleType() {
         return vehicleType;
     }
 
@@ -50,10 +47,6 @@ public class Vehicle {
 
     public double getCapacityKG() {
         return capacityKG;
-    }
-
-    public String getCapacityMeters() {
-        return capacityMeters;
     }
 
     public Company getCompany() {
@@ -69,7 +62,7 @@ public class Vehicle {
         this.id = id;
     }
 
-    public void setVehicleType(VehicleType vehicleType) {
+    public void setVehicleType(String vehicleType) {
         this.vehicleType = vehicleType;
     }
 
@@ -79,10 +72,6 @@ public class Vehicle {
 
     public void setCapacityKG(double capacityKG) {
         this.capacityKG = capacityKG;
-    }
-
-    public void setCapacityMeters(String capacityMeters) {
-        this.capacityMeters = capacityMeters;
     }
 
     public void setCompany(Company company) {
@@ -101,7 +90,6 @@ public class Vehicle {
                 ", vehicleType=" + vehicleType +
                 ", licensePlate='" + licensePlate + '\'' +
                 ", capacityKG=" + capacityKG +
-                ", capacityMeters='" + capacityMeters + '\'' +
                 ", company=" + company +
                 '}';
     }

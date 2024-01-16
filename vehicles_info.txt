@@ -1,0 +1,2 @@
+Vehicle ID: 1, Type: DELIVERY_TRUCK, License Plate: CB1111QQ, Capacity: 1500.00 KG, Company: Company1
+

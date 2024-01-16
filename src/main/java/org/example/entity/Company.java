@@ -16,6 +16,8 @@ public class Company {
     private Set<Vehicle> vehicles;
     @OneToMany(mappedBy = "company")
     private Set<Employee> employees;
+    @OneToMany(mappedBy = "company")
+    private Set<Client> clients;
 
     //constructors
     public Company() {}
@@ -45,6 +47,10 @@ public class Company {
         return employees;
     }
 
+    public Set<Client> getClients() {
+        return clients;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
@@ -64,6 +70,10 @@ public class Company {
 
     public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
+    }
+
+    public void setClients(Set<Client> clients) {
+        this.clients = clients;
     }
 
     //toString

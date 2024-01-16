@@ -98,10 +98,6 @@ public class Employee {
         this.company = company;
     }
 
-    public void setTransports(Set<Transport> transports) {
-        this.transports = transports;
-    }
-
     //toString
     @Override
     public String toString() {

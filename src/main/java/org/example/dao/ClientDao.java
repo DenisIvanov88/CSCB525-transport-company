@@ -2,12 +2,14 @@ package org.example.dao;
 
 import org.example.configuration.SessionFactoryUtil;
 import org.example.entity.Client;
+import org.example.entity.Company;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
 public class ClientDao {
+    //CREATE
     public static void createClient(Client client) {
         try(Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -15,7 +17,7 @@ public class ClientDao {
             transaction.commit();
         }
     }
-
+    //READ SINGLE
     public static Client getClientById(long id) {
         Client client;
         try(Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
@@ -25,7 +27,7 @@ public class ClientDao {
         }
         return client;
     }
-
+    //READ ALL
     public static List<Client> getClients() {
         List<Client> clients;
         try(Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
@@ -34,5 +36,21 @@ public class ClientDao {
             transaction.commit();
         }
         return clients;
+    }
+    //UPDATE
+    public static void updateClient(Client client) {
+        try(Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.saveOrUpdate(client);
+            transaction.commit();
+        }
+    }
+    //DELETE
+    public static void deleteClient(Client client) {
+        try(Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.delete(client);
+            transaction.commit();
+        }
     }
 }
