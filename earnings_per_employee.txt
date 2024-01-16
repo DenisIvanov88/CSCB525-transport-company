@@ -1,0 +1,4 @@
+Employee ID: 1, Name: Ivan, Total Earnings: 100020.00
+Employee ID: 2, Name: Georgi, Total Earnings: 4238.00
+Employee ID: 4, Name: Georgi, Total Earnings: 3763.00
+Employee ID: 6, Name: Mitko, Total Earnings: 1600.00

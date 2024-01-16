@@ -1,2 +1,20 @@
-Vehicle ID: 1, Type: DELIVERY_TRUCK, License Plate: CB1111QQ, Capacity: 1500.00 KG, Company: Company1
+Vehicle ID: 1, Type: DELIVERY_TRUCK, License Plate: CB1111IV, Capacity: 1700.00 KG, Company: Epic Transport
+
+Vehicle ID: 2, Type: VAN, License Plate: CB2121PP, Capacity: 700.00 KG, Company: Epic Transport
+
+Vehicle ID: 3, Type: BUS, License Plate: CB1337GG, Capacity: 0.00 KG, Company: Epic Transport
+
+Vehicle ID: 4, Type: TRAILER, License Plate: CB8008QQ, Capacity: 25000.00 KG, Company: Epic Transport
+
+Vehicle ID: 5, Type: DELIVERY_TRUCK, License Plate: CB7777LU, Capacity: 1600.00 KG, Company: The Transporters
+
+Vehicle ID: 6, Type: DELIVERY_TRUCK, License Plate: CB7474OK, Capacity: 1650.00 KG, Company: The Transporters
+
+Vehicle ID: 7, Type: BUS, License Plate: CB2424WW, Capacity: 0.00 KG, Company: The Transporters
+
+Vehicle ID: 8, Type: VAN, License Plate: CB8979JJ, Capacity: 600.00 KG, Company: The Transporters
+
+Vehicle ID: 9, Type: VAN, License Plate: CB4444SH, Capacity: 650.00 KG, Company: The Transporters
+
+Vehicle ID: 10, Type: DELIVERY_TRUCK, License Plate: CB1111WW, Capacity: 1500.00 KG, Company: Epic Transport
 

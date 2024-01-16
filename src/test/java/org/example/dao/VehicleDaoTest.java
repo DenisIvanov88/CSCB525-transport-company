@@ -26,7 +26,7 @@ class VehicleDaoTest {
 
     @Test
     void getVehicleByLicensePlate() {
-        System.out.println(VehicleDao.getVehicleByLicensePlate("CB1111WW"));
+        System.out.println(VehicleDao.getVehicleByLicensePlate("CB1111IV"));
     }
 
     @Test
@@ -43,6 +43,6 @@ class VehicleDaoTest {
 
     @Test
     void deleteVehicle() {
-        VehicleDao.deleteVehicle(VehicleDao.getVehicleById(2));
+        VehicleDao.deleteVehicle(VehicleDao.getVehicleById(10));
     }
 }

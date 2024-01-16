@@ -30,8 +30,8 @@ class CompanyDaoTest {
 
     @Test
     void updateCompany() {
-        Company company = CompanyDao.getCompanyById(4);
-        company.setName("Company4");
+        Company company = CompanyDao.getCompanyById(2);
+        company.setName("The Transporters");
         CompanyDao.updateCompany(company);
     }
 

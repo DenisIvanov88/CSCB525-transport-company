@@ -88,6 +88,7 @@ public class EmployeeDao {
         }
     }
 
+    //List all employees with salary greater than x
     public static List<Employee> employeesFindBySalaryGreaterThan(double amount) {
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
             CriteriaBuilder cb = session.getCriteriaBuilder();
@@ -101,6 +102,7 @@ public class EmployeeDao {
         }
     }
 
+    //List all employees with salary less than x
     public static List<Employee> employeesFindBySalaryLessThan(double amount) {
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
             CriteriaBuilder cb = session.getCriteriaBuilder();
@@ -114,6 +116,7 @@ public class EmployeeDao {
         }
     }
 
+    //Give sum of all salaries in a company by id
     public static long sumSalariesInCompany(long companyId) {
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
             CriteriaBuilder cb = session.getCriteriaBuilder();
@@ -128,6 +131,7 @@ public class EmployeeDao {
         }
     }
 
+    //List all employees with special cargo license
     public static List<Employee> employeesWithSpecialCargoLicense() {
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
             CriteriaBuilder cb = session.getCriteriaBuilder();
@@ -141,6 +145,7 @@ public class EmployeeDao {
         }
     }
 
+    //List all employees with crowd license
     public static List<Employee> employeesWithCrowdLicense() {
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
             CriteriaBuilder cb = session.getCriteriaBuilder();
@@ -154,22 +159,7 @@ public class EmployeeDao {
         }
     }
 
-    public static Set<Transport> getEmployeeTransports(long id) {
-        Employee employee;
-        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.getTransaction();
-            employee = session.createQuery(
-                    "select c from Employee c" +
-                            " join fetch c.transports" +
-                            " where c.id = :id",
-                    Employee.class).setParameter("id", id)
-                    .getSingleResult();
-            transaction.commit();
-        }
-        return employee.getTransports();
-    }
-
-    // READ ALL EMPLOYEES SORTED BY EARNINGS
+    //List all employees sorted by earnings
     public static List<Employee> getEmployeesSortedByEarnings() {
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -197,6 +187,8 @@ public class EmployeeDao {
             return sortedEmployees;
         }
     }
+
+    //Sort employees by amount of transports. Format: Employee ID: x, Name: y, Transport Count: z
     public static List<String> getEmployeeTransportCounts() {
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -220,6 +212,38 @@ public class EmployeeDao {
 
                 String formattedResult = String.format("Employee ID: %d, Name: %s, Transport Count: %d",
                         employeeId, employeeName, transportCount);
+                formattedResults.add(formattedResult);
+            }
+
+            return formattedResults;
+        }
+    }
+
+    //Calculate earnings per employee (excluding unpaid transports)
+    public static List<String> earningsPerEmployee() {
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            String hql = "SELECT e.id, e.name, COALESCE(SUM(t.price), 0.0) " +
+                    "FROM Employee e " +
+                    "LEFT JOIN e.transports t " +
+                    "WHERE t.isPaidFor = true " + // Consider only paid transports
+                    "GROUP BY e.id, e.name";
+
+            Query<Object[]> query = session.createQuery(hql, Object[].class);
+            List<Object[]> result = query.getResultList();
+
+            transaction.commit();
+
+            // Format the results as strings
+            List<String> formattedResults = new ArrayList<>();
+            for (Object[] row : result) {
+                Long employeeId = (Long) row[0];
+                String employeeName = (String) row[1];
+                Double totalEarnings = (Double) row[2];
+
+                String formattedResult = String.format("Employee ID: %d, Name: %s, Total Earnings: %.2f",
+                        employeeId, employeeName, totalEarnings);
                 formattedResults.add(formattedResult);
             }
 

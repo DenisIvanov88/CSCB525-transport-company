@@ -1,4 +1,7 @@
-Client ID: 1, Name: Georgi, Phone Number: 8888888888, Company: Company1
-
-Client ID: 2, Name: Ivan, Phone Number: 8888888888, Company: Company1
-
+Client ID: 1, Name: Georgi, Phone Number: 0888777888
+Client ID: 2, Name: Santa, Phone Number: 0878787878
+Client ID: 3, Name: Vacation Home Paradise, Phone Number: 0888555888
+Client ID: 4, Name: Vacation Home Hell, Phone Number: 0888666888
+Client ID: 5, Name: Sasho, Phone Number: 0888555888
+Client ID: 6, Name: Kaloyan, Phone Number: 0888555888
+Client ID: 7, Name: Ivan, Phone Number: 8888888888

@@ -55,4 +55,14 @@ class TransportDaoTest {
     void getTransportsSortedByDestination() {
         TransportDao.getTransportsSortedByDestination().stream().forEach(System.out::println);
     }
+
+    @Test
+    void totalEarningInCompany() {
+        System.out.println(TransportDao.totalEarningInCompany(1));;
+    }
+
+    @Test
+    void totalTransportsByCompany() {
+        System.out.println(TransportDao.totalTransportsByCompany(1));
+    }
 }

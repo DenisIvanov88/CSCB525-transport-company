@@ -4,6 +4,7 @@ import org.example.configuration.SessionFactoryUtil;
 import org.example.entity.Transport;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -61,6 +62,7 @@ public class TransportDao {
             transaction.commit();
         }
     }
+
     // READ ALL TRANSPORTS SORTED BY DESTINATION
     public static List<Transport> getTransportsSortedByDestination() {
         List<Transport> transports;
@@ -74,5 +76,47 @@ public class TransportDao {
             transaction.commit();
         }
         return transports;
+    }
+
+    // Calculate total earnings in a company by id
+    public static double totalEarningInCompany(long companyId) {
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            String hql = "SELECT COALESCE(SUM(t.price), 0.0) " +
+                    "FROM Transport t " +
+                    "JOIN t.employee e " +
+                    "JOIN e.company c " +
+                    "WHERE c.id = :companyId";
+
+            Query<Double> query = session.createQuery(hql, Double.class);
+            query.setParameter("companyId", companyId);
+            Double totalEarnings = query.uniqueResult();
+
+            transaction.commit();
+
+            return totalEarnings != null ? totalEarnings : 0.0;
+        }
+    }
+
+    // Calculate total transports done by a company by id
+    public static long totalTransportsByCompany(long companyId) {
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            String hql = "SELECT COUNT(t.id) " +
+                    "FROM Transport t " +
+                    "JOIN t.employee e " +
+                    "JOIN e.company c " +
+                    "WHERE c.id = :companyId";
+
+            Query<Long> query = session.createQuery(hql, Long.class);
+            query.setParameter("companyId", companyId);
+            Long totalTransports = query.uniqueResult();
+
+            transaction.commit();
+
+            return totalTransports != null ? totalTransports : 0L;
+        }
     }
 }

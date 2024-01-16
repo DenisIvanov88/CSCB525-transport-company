@@ -1,4 +1,2 @@
-Company ID: 1, Name: Company1, Address: Address1
-Company ID: 4, Name: Company4, Address: Address2
-Company ID: 5, Name: Comp2, Address: Address2
-Company ID: 6, Name: Comp2, Address: Address2
+Company ID: 1, Name: Epic Transport, Address: Sofia
+Company ID: 2, Name: The Transporters, Address: Sofia

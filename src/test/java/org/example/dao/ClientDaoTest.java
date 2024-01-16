@@ -32,12 +32,12 @@ class ClientDaoTest {
     @Test
     void updateClient() {
         Client client = ClientDao.getClientById(1);
-        client.setName("Georgi");
+        client.setName("Bobby");
         ClientDao.updateClient(client);
     }
 
     @Test
     void deleteClient() {
-        ClientDao.deleteClient(ClientDao.getClientById(1));
+        ClientDao.deleteClient(ClientDao.getClientById(7));
     }
 }

@@ -15,9 +15,6 @@ public class Client {
     private String phoneNumber;
     @OneToMany(mappedBy = "client")
     private Set<Transport> transports;
-    @ManyToOne
-    @JoinColumn(name = "company_id")
-    private Company company;
 
     //constructors
     public Client() {}
@@ -39,10 +36,6 @@ public class Client {
         return phoneNumber;
     }
 
-    public Company getCompany() {
-        return company;
-    }
-
     public Set<Transport> getTransports() {
         return transports;
     }
@@ -58,10 +51,6 @@ public class Client {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public void setCompany(Company company) {
-        this.company = company;
     }
 
     //toString

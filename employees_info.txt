@@ -1,3 +1,7 @@
-Employee ID: 1, Name: Georgi, Salary: 2000
-Employee ID: 2, Name: Emp2, Salary: 1800
-Employee ID: 3, Name: Emp3, Salary: 2200
+Employee ID: 1, Name: Ivan, Salary: 2500
+Employee ID: 2, Name: Georgi, Salary: 2300
+Employee ID: 3, Name: Hristo, Salary: 2000
+Employee ID: 4, Name: Georgi, Salary: 2200
+Employee ID: 5, Name: Pesho, Salary: 2400
+Employee ID: 6, Name: Mitko, Salary: 2600
+Employee ID: 7, Name: Hristo, Salary: 2000
